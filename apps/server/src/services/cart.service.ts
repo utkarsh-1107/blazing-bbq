@@ -26,7 +26,7 @@ export const cartService = {
     // Create cart if doesn't exist
     if (!cart) {
       cart = await prisma.cart.create({
-        where: { userId },
+        data: { userId },
         include: {
           items: {
             include: {
@@ -72,7 +72,7 @@ export const cartService = {
 
     if (!cart) {
       cart = await prisma.cart.create({
-        where: { userId },
+        data: { userId },
       });
     }
 
