@@ -1,0 +1,19 @@
+{
+  "name": "prisma",
+  "scripts": {
+    "migrate": "prisma migrate dev --schema schema.sqlite.prisma",
+    "migrate:prod": "prisma migrate deploy --schema schema.prisma",
+    "generate": "prisma generate --schema schema.sqlite.prisma",
+    "generate:prod": "prisma generate --schema schema.prisma",
+    "push": "prisma db push --schema schema.sqlite.prisma",
+    "push:prod": "prisma db push --schema schema.prisma",
+    "seed": "tsx seed.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "tsx": "^4.7.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.9.1"
+  }
+}

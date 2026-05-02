@@ -1,0 +1,5 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "rm -rf apps/client/.next && npm run build:client",
+  "outputDirectory": "apps/client/.next"
+}

@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ef4444;
+  --primary-dark: #b91c1c;
+  --primary-light: #450a0a;
+  --bg-0: #09090b;
+  --bg-1: #111113;
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-strong: rgba(255, 255, 255, 0.14);
+  --line: rgba(255, 255, 255, 0.16);
+  --txt-0: #f4f4f5;
+  --txt-1: #d4d4d8;
+  --txt-2: #a1a1aa;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(900px 520px at -10% -10%, rgba(239, 68, 68, 0.22), transparent 60%),
+    radial-gradient(900px 520px at 110% 10%, rgba(220, 38, 38, 0.18), transparent 58%),
+    linear-gradient(140deg, var(--bg-0), var(--bg-1));
+  color: var(--txt-0);
+}
+
+/* Dark glassmorphism theme override */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100,
+.bg-gray-900 {
+  background-color: var(--glass) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--line);
+}
+
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35) !important;
+}
+
+.text-gray-900,
+.text-gray-800,
+.text-gray-700 {
+  color: var(--txt-0) !important;
+}
+
+.text-gray-600,
+.text-gray-500,
+.text-gray-400 {
+  color: var(--txt-1) !important;
+}
+
+.border-gray-100,
+.border-gray-200,
+.border-gray-300,
+.border-gray-800 {
+  border-color: var(--line) !important;
+}
+
+.hover\:bg-gray-50:hover,
+.hover\:bg-gray-100:hover,
+.hover\:bg-gray-200:hover {
+  background-color: var(--glass-strong) !important;
+}
+
+.card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Food card hover effects */
+.food-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Category tab active state */
+.category-tab {
+  transition: all 0.2s ease;
+}
+
+.category-tab.active {
+  background-color: #E53935;
+  color: white;
+}
+
+/* Button press effect */
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* Cart slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.cart-panel-enter {
+  animation: slideIn 0.3s ease forwards;
+}
+
+.cart-panel-exit {
+  animation: slideOut 0.3s ease forwards;
+}
+
+/* Pulse animation for live indicator */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Timeline connector line */
+.timeline-line {
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  bottom: 0;
+  width: 2px;
+  background: #E5E7EB;
+}
+
+.timeline-line-active {
+  background: #E53935;
+}
+
+/* Sticky bottom bar safe area */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
